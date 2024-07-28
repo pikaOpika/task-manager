@@ -4,9 +4,15 @@ from django.contrib.auth.models import AbstractUser
 class TaskType(models.Model):
     name = models.CharField(max_length=255)
 
+    def __str__(self) -> str:
+        return f"{self.name}"
+
 
 class Position(models.Model):
     name = models.CharField(max_length=255)
+
+    def __str__(self) -> str:
+        return f"{self.name}"
 
 
 class Worker(AbstractUser):
@@ -37,3 +43,6 @@ class Task(models.Model):
         Worker,
         related_name="tasks"
     )
+
+    def __str__(self) -> str:
+        return f"{self.task_type} {self.get_priority_display()} priority"
