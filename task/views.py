@@ -17,3 +17,4 @@ class TaskDetailView(generic.DetailView):
 
 class WorkerDetailView(generic.DetailView):
     model = Worker
+    queryset = Worker.objects.prefetch_related('tasks')

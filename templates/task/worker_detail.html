@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Detail about Worker</h1>
+<p>{{ worker.username }}</p>
+<h2>My tasks</h2>
+<ul>
+    {% for task in worker.tasks.all %}
+    <li>{{ task }}</li>
+    {% empty %}
+    There is no tasks
+    {% endfor %}
+</ul>
+
+<br>
+<button>Add tasks</button>
+{% endblock %}
