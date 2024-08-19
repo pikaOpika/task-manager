@@ -5,6 +5,9 @@
     {% else %}
       <li class="list-group-item"><a href="{% url 'login'%}">Login</a></li>
     {% endif %}
+      <li class="list-group-item"><a href="{% url 'task:home' %}">Home</a></li>
+    {% if user.is_authenticated %}
       <li class="list-group-item"><a href="{% url 'task:worker-detail' user.id %}">Workplace</a> </li>
+    {%endif%}
       <li class="list-group-item"><a href="{% url 'task:task-list'%}">Tasks</a></li>
 </ul>
